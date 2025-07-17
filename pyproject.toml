@@ -1,0 +1,19 @@
+[project]
+name = "catqdm"
+version = "0.1.0"
+description = "Simple tqdm bar with asci cat faces."
+authors = [
+    {name = "Aloys Bernard" ,email = "aloys.bernard@artefact.com"},
+    {name="Florence Maestlé",email = "fmaestle@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "tqdm (>=4.67.1,<5.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
