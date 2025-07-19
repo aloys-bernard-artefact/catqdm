@@ -17,9 +17,8 @@ def main():
     
     # Demo 1: Basic rich cat progress bar
     print("Demo 1: File processing with animated cats")
-    files = ["config.json", "data.csv", "image.jpg", "video.mp4", "document.pdf"]
     
-    for file in rich_cat_bar(files, desc="Processing files"):
+    for file in rich_cat_bar(range(100), desc="Processing files", sleep_per=0.1):
         time.sleep(0.5)  # Simulate processing time
     
     time.sleep(1)
@@ -27,10 +26,10 @@ def main():
     # Demo 2: Multi-stage loading
     print("\nDemo 2: Multi-stage cat loading")
     stages = [
-        ("Waking up cats", 1),
-        ("Loading cat data", 2),
-        ("Training cats", 3),
-        ("Cat deployment", 1),
+        ("Waking up cats", 5),
+        ("Loading cat data", 7),
+        ("Training cats", 10),
+        ("Cat deployment", 5),
     ]
     
     multi_stage_cat_loading(stages, total_time=6.0)

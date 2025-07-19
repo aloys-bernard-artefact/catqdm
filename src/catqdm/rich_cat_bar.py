@@ -11,18 +11,14 @@ Features:
 
 import time
 import random
-from typing import Iterable, Sequence, Any, Iterator, Optional, List, Tuple
-from concurrent.futures import ThreadPoolExecutor
-import math
+from typing import Iterable, Any, Iterator, Optional, List, Tuple
 
 from rich.console import Console
 from rich.live import Live
 from rich.panel import Panel
-from rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn, TimeRemainingColumn
 from rich.table import Table
 from rich.text import Text
 from rich.align import Align
-from rich.columns import Columns
 from rich.layout import Layout
 from rich import box
 
@@ -35,31 +31,37 @@ class CatSprites:
     
     # Sleeping cat (0-20%)
     SLEEPING = [
-        """       /\\_/\\  
+        """      
+      /\\_/\\  
       ( o.o ) 
        > ^ <  
-    zzZ  |_|  Zzz""",
-        """       /\\_/\\  
+   zzZ  |_|  Zzz""",
+        """      
+      /\\_/\\  
       ( -.- ) 
        > ^ <  
-   zzZ   |_|   Zzz""",
-        """       /\\_/\\  
+  zzZ   |_|   Zzz""",
+        """      
+      /\\_/\\  
       ( u.u ) 
        > ^ <  
-  zzZ    |_|    Zzz"""
+ zzZ    |_|    Zzz"""
     ]
     
     # Waking up cat (20-40%)
     WAKING = [
-        """       /\\_/\\  
+        """      
+      /\\_/\\  
       ( O.O ) 
        > ^ <  
         |_|   """,
-        """       /\\_/\\  
+        """      
+      /\\_/\\  
       ( @.@ ) 
        > ^ <  
         |_|   """,
-        """       /\\_/\\  
+        """      
+      /\\_/\\  
       ( o.O ) 
        > ^ <  
         |_|   """
@@ -67,49 +69,58 @@ class CatSprites:
     
     # Alert cat (40-60%)
     ALERT = [
-        """       /\\_/\\  
+        """      
+      /\\_/\\  
       ( ^.^ ) 
-       > W <  
+       > ^ <  
         |_|   """,
-        """       /\\_/\\  
+        """      
+      /\\_/\\  
       ( ^o^ ) 
-       > W <  
+       > ^ <  
         |_|   """,
-        """    /\\ /\\_/\\  
-   (  ( ^.^ ) 
-    \\ > W <  
-      \\ |_|   """
+        """      
+    /\\/\\_/\\  
+      ( ^.^ ) 
+       > ^ <  
+        |_|   """
     ]
     
     # Running cat (60-80%)
     RUNNING = [
-        """    /\\_   /\\_/\\  
-   /    ( >o< ) ~
-  <      > < <   ~
-   \\___   |_|  ~~""",
-        """     /\\_/\\   _/\\
-    ( >o< )   /
-    > < <    <
-     |_|   ~~~ \\___""",
-        """  /\\  /\\_/\\     
- /  ( >o< )  \\  
-<    > < <    >
- \\~~  |_|  ~~/  """
+        """      
+      /\\_/\\  ~
+      ( >o< ) ~
+       > ^ <  ~
+        |_|  ~~""",
+        """      
+      /\\_/\\   
+      ( >o< )  
+       > ^ <   
+        |_|  ~~~""",
+        """      
+      /\\_/\\  
+      ( >o< )  
+       > ^ <   
+        |_|  ~~~"""
     ]
     
     # Flying/jumping cat (80-100%)
     FLYING = [
-        """   ✨  /\\_/\\  ✨
-  ✨  ( ^ω^ )  ✨
- ✨    > ◇ <    ✨
+        """      
+  ✨  /\\_/\\  ✨
+ ✨   ( ^ω^ )   ✨
+ ✨    > ^ <    ✨
    ✨   |_|   ✨""",
-        """  ⭐  /\\_/\\  ⭐
+        """      
+  ⭐  /\\_/\\  ⭐
  ⭐   ( ^ω^ )   ⭐
-⭐     > ◇ <     ⭐
+⭐     > ^ <     ⭐
   ⭐    |_|    ⭐""",
-        """  🌟  /\\_/\\  🌟
+        """      
+  🌟  /\\_/\\  🌟
  🌟   ( ^ω^ )   🌟
-🌟     > ◇ <     🌟
+🌟     > ^ <     🌟
   🌟    |_|    🌟"""
     ]
 
