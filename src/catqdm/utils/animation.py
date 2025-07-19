@@ -13,6 +13,7 @@ from rich.table import Table
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.layout import Layout
 from rich.columns import Columns
+from catqdm.utils.notebook import _in_notebook
 
 class CatAnimation:
     """Library loading animation."""
@@ -135,7 +136,7 @@ class CatAnimation:
 
 def should_show_animation() -> bool:
     """Check if animation should be shown."""
-    return os.getenv('CATQDM_ANIMATION', '').lower() != 'false'
+    return os.getenv('CATQDM_ANIMATION', '').lower() != 'false' and not _in_notebook()
 
 def run_cat_animation():
     """Run the cat animation with current configuration."""
