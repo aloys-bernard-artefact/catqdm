@@ -1,7 +1,8 @@
+from IPython import get_ipython
+
 def _in_notebook() -> bool:
     """Rudimentary notebook detection (IPython kernel / Jupyter / Colab)."""
-    try:  # pragma: no cover - light best-effort
-        from IPython import get_ipython  # type: ignore
+    try:
         ip = get_ipython()
         if ip is None:
             return False
