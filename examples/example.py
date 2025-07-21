@@ -1,4 +1,4 @@
-from catqdm import cat_bar, big_cat_bar, big_cat_bar_fullpath, CatProgressBar
+from catqdm import cat_bar, big_cat_bar, CatProgressBar
 import time
 
 for _ in big_cat_bar(range(100), sleep_per=0.1):
@@ -7,7 +7,7 @@ for _ in big_cat_bar(range(100), sleep_per=0.1):
 for _ in cat_bar(range(100), sleep_per=0.1):
     pass
 
-for _ in big_cat_bar_fullpath(range(100), sleep_per=0.1):
+for _ in big_cat_bar(range(100), sleep_per=0.1, moving=True):
     pass
 
 with CatProgressBar(100, "Processing files", unit="file", width=20) as pbar:

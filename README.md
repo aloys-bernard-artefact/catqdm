@@ -84,6 +84,10 @@ for i in big_cat_bar(range(100), eyes=custom_eyes, desc="Happy Cat",sleep_per=0.
 # Disable animations
 for i in big_cat_bar(range(20), eyes=None, tails=None, desc="Static Cat"):
     time.sleep(0.1)
+
+# Moving cat (horizontal movement from start to end)
+for i in big_cat_bar(range(100), moving=True, desc="Walking Cat"):
+    time.sleep(0.05)
 ```
 
 ### In Jupyter Notebooks
@@ -118,6 +122,8 @@ Big cat progress bar with animated eyes and tail.
 - `desc`: Description text (default: "Mood Upgrade")
 - `live`: Force live redraw (True) or static print (False). Default: auto-detect
 - `center_term`: Center cat horizontally in terminal mode (default: True)
+- `moving`: Whether the cat moves horizontally across the screen from start to end (default: False)
+- `max_movement`: Maximum horizontal movement distance. If None, uses terminal width - cat width
 - `**kwargs`: Additional tqdm parameters
 
 ## Backend Modes
@@ -153,6 +159,18 @@ for i in big_cat_bar(range(100), tails=my_tails):
 ```python
 # Static cat (no eye/tail movement)
 for i in big_cat_bar(range(100), eyes=None, tails=None):
+    pass
+```
+
+### Moving Cat
+
+```python
+# Cat moves horizontally from start to end of the progress bar
+for i in big_cat_bar(range(100), moving=True):
+    pass
+
+# Custom movement distance
+for i in big_cat_bar(range(100), moving=True, max_movement=50):
     pass
 ```
 
